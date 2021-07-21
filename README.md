@@ -15,12 +15,12 @@ Ed aggiungere ogni script voluto manualmente con:
 // @require     [URL]
 
 Esempio per RitualUpgrade:
-// ==UserScript==
+"// ==UserScript==
 // @name        GREPO_TRICKS
 // @author      Sau1707
 // @include     https://*.grepolis.com/game/*
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualUpgrade.js
-// ==/UserScript==
+// ==/UserScript=="
 
 Ritual Upgrade: 
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualUpgrade.js
