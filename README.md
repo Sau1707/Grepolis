@@ -14,15 +14,17 @@ Per installare gli script, aggiungere a tampermonkey la versione di base
 Ed aggiungere ogni script voluto manualmente con:
 // @require     [URL]
 
-Esempio per RitualUpgrade: \n
-"// ==UserScript==
-// @name        GREPO_TRICKS \n
-// @author      Sau1707 \n
-// @include     https://*.grepolis.com/game/* \n
-// @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualUpgrade.js \n
-// ==/UserScript==" \n
+Esempio per RitualUpgrade:
+```javascript
+// ==UserScript==
+// @name        GREPO_TRICKS 
+// @author      Sau1707 
+// @include     https://*.grepolis.com/game/* 
+// @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualUpgrade.js 
+// ==/UserScript==
+```
 
-Ritual Upgrade: \n
+Ritual Upgrade: 
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualUpgrade.js
 
 
