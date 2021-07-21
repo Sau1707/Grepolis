@@ -1,8 +1,14 @@
 (function() {
     'use strict';
     var rurali = false;
+
     function upgrade(polisID, farmTownPlayerID, ruralID) {
-        let data = {"model_url":"FarmTownPlayerRelation/"+farmTownPlayerID,"action_name":"upgrade","arguments":{"farm_town_id":ruralID},"town_id":polisID}
+        let data = {"model_url":"FarmTownPlayerRelation/"+farmTownPlayerID,"action_name":"upgrade","arguments":{"farm_town_id":ruralID},"town_id":polisID};
+        gpAjax.ajaxPost("frontend_bridge", "execute", data);
+    }
+
+    function unlock(polisID, farmTownPlayerID, ruralID) {
+        let data = {"model_url":"FarmTownPlayerRelation/"+farmTownPlayerID,"action_name":"unlock","arguments":{"farm_town_id":ruralID},"town_id":polisID};
         gpAjax.ajaxPost("frontend_bridge", "execute", data);
     }
 
@@ -20,7 +26,14 @@
                 for (let k = 0; k < size; k++) {
                     if (ruralID == MM.getCollections().FarmTownPlayerRelation[0].models[k].getFarmTownId()) {
                         let farmTownPlayerID = MM.getCollections().FarmTownPlayerRelation[0].models[k].id;
-                        upgrade(polisID, farmTownPlayerID, ruralID);
+                        if (MM.getCollections().FarmTownPlayerRelation[0].models[k].attributes.relation_status == 0) {
+                            unlock(polisID, farmTownPlayerID, ruralID);
+                        }
+                        if (MM.getCollections().FarmTownPlayerRelation[0].models[k].attributes.expansion_stage < 6) {
+                            if (MM.getCollections().FarmTownPlayerRelation[0].models[k].attributes.expansion_stage.expansion_at == null) {
+                                upgrade(polisID, farmTownPlayerID, ruralID);
+                            }
+                        }
                     }
                 }
             }
