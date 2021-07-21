@@ -30,7 +30,7 @@
                             unlock(polisID, farmTownPlayerID, ruralID);
                         }
                         if (MM.getCollections().FarmTownPlayerRelation[0].models[k].attributes.expansion_stage < 6) {
-                            if (MM.getCollections().FarmTownPlayerRelation[0].models[k].attributes.expansion_stage.expansion_at == null) {
+                            if (MM.getCollections().FarmTownPlayerRelation[0].models[k].attributes.expansion_at == null) {
                                 upgrade(polisID, farmTownPlayerID, ruralID);
                             }
                         }
