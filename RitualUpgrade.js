@@ -1,19 +1,19 @@
 (function() {
     'use strict';
-    var rurali = false;
-
+    // Send post request to the server, to upgrade the rural
     function upgrade(polisID, farmTownPlayerID, ruralID) {
         let data = {"model_url":"FarmTownPlayerRelation/"+farmTownPlayerID,"action_name":"upgrade","arguments":{"farm_town_id":ruralID},"town_id":polisID};
         gpAjax.ajaxPost("frontend_bridge", "execute", data);
     }
 
+    // send post request to the server, to onlick the rural
     function unlock(polisID, farmTownPlayerID, ruralID) {
         let data = {"model_url":"FarmTownPlayerRelation/"+farmTownPlayerID,"action_name":"unlock","arguments":{"farm_town_id":ruralID},"town_id":polisID};
         gpAjax.ajaxPost("frontend_bridge", "execute", data);
     }
 
+    // get the active polis and upgrade the rural on that island
     function UpgradeAll() {
-        console.log("qua");
         let polisID = Game.townId;
         let islandX = ITowns.towns[Game.townId].getIslandCoordinateX();
         let islandY = ITowns.towns[Game.townId].getIslandCoordinateY();
@@ -40,6 +40,7 @@
         }
     }
 
+    // add the button
     $(document).ajaxComplete(function() {
         var autobutton = document.getElementById("auto_butt");
         if (autobutton == null) {
@@ -58,7 +59,11 @@
         }
     })
 
+    // add action to the button
     $(document).on("click","#auto_butt", function() {
         UpgradeAll();
     });
+
+    // Print in console that the script is loaded
+    console.log("Auto Upgrade Button Loaded")
 })();
