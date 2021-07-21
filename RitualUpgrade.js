@@ -1,0 +1,51 @@
+(function() {
+    'use strict';
+    var rurali = false;
+    function upgrade(polisID, farmTownPlayerID, ruralID) {
+        let data = {"model_url":"FarmTownPlayerRelation/"+farmTownPlayerID,"action_name":"upgrade","arguments":{"farm_town_id":ruralID},"town_id":polisID}
+        gpAjax.ajaxPost("frontend_bridge", "execute", data);
+    }
+
+    function UpgradeAll() {
+        console.log("qua");
+        let polisID = Game.townId;
+        let islandX = ITowns.towns[Game.townId].getIslandCoordinateX();
+        let islandY = ITowns.towns[Game.townId].getIslandCoordinateY();
+        let size = MM.getCollections().FarmTown[0].models["length"];
+        for (let i = 0; i < size; i++) {
+            let isX = MM.getCollections().FarmTown[0].models[i].attributes.island_x;
+            let isY = MM.getCollections().FarmTown[0].models[i].attributes.island_y;
+            if (islandX == isX && islandY == isY) {
+                let ruralID = MM.getCollections().FarmTown[0].models[i].id;
+                for (let k = 0; k < size; k++) {
+                    if (ruralID == MM.getCollections().FarmTownPlayerRelation[0].models[k].getFarmTownId()) {
+                        let farmTownPlayerID = MM.getCollections().FarmTownPlayerRelation[0].models[k].id;
+                        upgrade(polisID, farmTownPlayerID, ruralID);
+                    }
+                }
+            }
+        }
+    }
+
+    $(document).ajaxComplete(function() {
+        var autobutton = document.getElementById("auto_butt");
+        if (autobutton == null) {
+            var rural = document.getElementsByClassName("island_info_towns island_info_right")[0];
+            if (rural != null) {
+                var border = rural.getElementsByClassName("game_border")[0];
+                if (autobutton == null) { //generate the button if not exist
+                    var butt = document.createElement("div");
+                    butt.className = "button_new";
+                    butt.id = "auto_butt";
+                    butt.style = "float: right; margin: 0px;";
+                    butt.innerHTML = '<div class=\"left\"></div>\n\t\t<div class=\"right\"></div>\n\t\t<div class=\"caption js-caption\"> Upgrade All <div class=\"effect js-effect\"></div></div>';
+                    border.insertBefore(butt, border.childNodes[0]);
+                }
+            }
+        }
+    })
+
+    $(document).on("click","#auto_butt", function() {
+        UpgradeAll();
+    });
+})();
