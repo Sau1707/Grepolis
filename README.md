@@ -2,7 +2,7 @@
 Usefull script (italian)
 
 Per donazioni - For donations:
-[Paypal] (https://paypal.me/sau1707)
+[Paypal](https://paypal.me/sau1707)
 
 Per installare gli script, aggiungere a tampermonkey la versione di base
 ```
