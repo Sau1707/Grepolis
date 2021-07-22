@@ -35,7 +35,7 @@ Esempio per RitualUpgrade:
 ```
 
 ## <div align="center"> Ritual Upgrade: </div>
-
+#### <div align="center"> Crea un bottone nella schermata isola che permette di ampliare tutti i villaggi rurali dell'isola in 1 solo click, se i villaggi non sono costruiti vengono sbloccati </div>
 ```
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualUpgrade.js
 ```
