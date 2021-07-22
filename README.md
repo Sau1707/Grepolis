@@ -34,7 +34,7 @@ Esempio per RitualUpgrade:
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualUpgrade.js
 ```
 
-AutoRuralResources:
+## <div align="center"> AutoRuralResources: </div>
 ```
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/AutoRuralResources.js
 ```
