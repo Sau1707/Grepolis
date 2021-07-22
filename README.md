@@ -28,7 +28,7 @@ Esempio per RitualUpgrade:
 // ==/UserScript==
 ```
 
-Ritual Upgrade:
+<div align="center"> **Ritual Upgrade:** </div>
 ```
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualUpgrade.js
 ```
