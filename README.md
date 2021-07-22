@@ -33,4 +33,7 @@ Ritual Upgrade:
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualUpgrade.js
 ```
 
-
+AutoRuralResources:
+```
+// @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/AutoRuralResources.js
+```
