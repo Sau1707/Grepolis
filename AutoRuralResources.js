@@ -11,7 +11,6 @@
     // send post request to the server to get resourses
     function claim(polisList) {
         let data = {"towns":polisList,"time_option_base":300,"time_option_booty":600,"claim_factor":"normal"};
-        console.log(data);
         gpAjax.ajaxPost("farm_town_overviews", "claim_loads_multiple", data);
     }
 
