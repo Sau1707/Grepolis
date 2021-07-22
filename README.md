@@ -22,7 +22,7 @@
 // ==/UserScript==
 ```
 
-
+***
 ### <div align="center"> AutoRuralResources: </div>
 ###### <div align="center"> Raccoglie le risorse dai rurali in modo automatizzato ogni 10 minuti più un tempo random che varia ogni ciclo, può essere attivato e disattivato a piacimento con il bottone che si crea affianco alla barra delle attività in alto a sisistra </div>
 ```
