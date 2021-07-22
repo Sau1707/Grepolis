@@ -1,28 +1,30 @@
 // ==UserScript==
-// @name		    GREPO_AutoRuralResources
+// @name		GREPO_AutoRuralResources
 // @author      Sau1707
-// @description Piccole aggiunte
-// @include		  https://*.grepolis.com/game/*
+// @description Automatically collects resources from rural villages, with an interval of 10 minutes plus a random time
+// @include		https://*.grepolis.com/game/*
 // ==/UserScript==
 
 
 
 (function() {
     'use strict';
+    //define cost and variables
     const time = 620000;
     const delta_time = 5000;
-
     var loop;
     var timer = 0;
     var rand;
     var active = false;
 
+    // send post request to the server to get resourses
     function claim(polisList) {
         let data = {"towns":polisList,"time_option_base":300,"time_option_booty":600,"claim_factor":"normal"};
         console.log(data);
         gpAjax.ajaxPost("farm_town_overviews", "claim_loads_multiple", data);
     }
 
+    //handle the timer and get resourses at the right time
     function main() {
         if (timer < 1) {
             let Polislist = generateList();
@@ -41,6 +43,7 @@
 
     }
 
+    // generate the list containing 1 polis per island
     function generateList() {
         let islandList = [];
         let polisList = [];
@@ -57,11 +60,13 @@
         return polisList;
     }
 
+    // add the button on window load
     $(window).load(function() {
         let html = '<div class=\"divider\"></div><div class="activity" id="btbutton" style="filter: brightness(70%) sepia(100%) hue-rotate(-50deg) saturate(1000%) contrast(0.8);"><p id="ptimer" style="z-index: 6; top: -8px; position: relative; font-weight: bold;"></p></div>'
          $('.tb_activities, .toolbar_activities').find(".middle").append(html);
     });
 
+    // set button event
     $(document).on("click","#btbutton", function() {
         if (!active) {
             loop = setInterval(main, 1000);
@@ -72,4 +77,7 @@
         }
         active = !active;
     });
+
+    // Print in console that the script is loaded
+    console.log("AutoRuralResources.js Loaded")
 })();
