@@ -22,27 +22,26 @@
 // ==/UserScript==
 ```
 
-___
-### <div align="center"> AutoRuralResources: </div>
-###### <div align="center"> Raccoglie le risorse dai rurali in modo automatizzato ogni 10 minuti più un tempo random che varia ogni ciclo, può essere attivato e disattivato a piacimento con il bottone che si crea affianco alla barra delle attività in alto a sisistra </div>
+## <div align="center"> AutoRuralResources: </div>
+#### <div align="center"> Raccoglie le risorse dai rurali in modo automatizzato ogni 10 minuti più un tempo random che varia ogni ciclo, può essere attivato e disattivato a piacimento con il bottone che si crea affianco alla barra delle attività in alto a sisistra </div>
 ```
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/AutoRuralResources.js
 ```
 
 
-### <div align="center"> RitualUpgrade: </div>
-###### <div align="center"> Crea un bottone nella schermata isola che permette di ampliare tutti i villaggi rurali dell'isola in 1 solo click, se i villaggi non sono costruiti vengono sbloccati </div>
+## <div align="center"> RitualUpgrade: </div>
+#### <div align="center"> Crea un bottone nella schermata isola che permette di ampliare tutti i villaggi rurali dell'isola in 1 solo click, se i villaggi non sono costruiti vengono sbloccati </div>
 ```
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualUpgrade.js
 ```
 
 
-### <div align="center"> RitualSmartAttack: </div>
-###### <div align="center"> Crea un bottone nella schermata di attacco, che permette di automatizzare gli attacchi per rituale, inizia con 50 pf (divisi tra arceri, spadaccini, frombolieri ed opliti). In caso errore per popolazione mimina per attacco, aumenta progressivamente fino a riuscire a mandare l'attacco </div>
+## <div align="center"> RitualSmartAttack: </div>
+#### <div align="center"> Crea un bottone nella schermata di attacco, che permette di automatizzare gli attacchi per rituale, inizia con 50 pf (divisi tra arceri, spadaccini, frombolieri ed opliti). In caso errore per popolazione mimina per attacco, aumenta progressivamente fino a riuscire a mandare l'attacco </div>
 ```
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualSmartAttack.js
 ```
 
 
-#### <div align="center"> Per donazioni - For donations: </div>
+## <div align="center"> Per donazioni - For donations: </div>
 #### <div align="center"> [Paypal](https://paypal.me/sau1707) </div>
