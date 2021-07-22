@@ -1,12 +1,3 @@
-// ==UserScript==
-// @name	    GREPO_AutoRuralResources
-// @author      Sau1707
-// @description Automatically collects resources from rural villages, with an interval of 10 minutes plus a random time
-// @include	    https://*.grepolis.com/game/*
-// ==/UserScript==
-
-
-
 (function() {
     'use strict';
     //define cost and variables
