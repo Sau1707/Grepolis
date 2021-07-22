@@ -10,9 +10,10 @@
     'use strict';
     const polis = []; //BB code
     const dTime = []; // distance in oplite with meteorogy
-    const ammount = 18;
+    const self_polis = "";
+    
     const debug = true;
-    const self_polis = 32623;
+    const ammount = 18;
 
     var counter = Array.from({length: polis.length}, (_, i) => 0);
     var loop, active;
