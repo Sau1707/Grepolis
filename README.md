@@ -1,5 +1,4 @@
-# Grepolis
-
+# <div align="center"> Grepolis TRICKS </div>
 
 ## <div align="center"> How to install: </div>
 #### <div align="center"> Crea un nuovo script tampermonkey ed incolla il seguente codice </div>
@@ -47,4 +46,4 @@
 ```
 
 #### <div align="center"> Per donazioni - For donations: </div>
-###### <div align="center"> [Paypal](https://paypal.me/sau1707) </div>
+##### <div align="center"> [Paypal](https://paypal.me/sau1707) </div>
