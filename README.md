@@ -1,5 +1,5 @@
 # <div align="center"> Grepolis TRICKS </div>
----
+===
 ## <div align="center"> How to install: </div>
 #### <div align="center"> Crea un nuovo script tampermonkey ed incolla il seguente codice </div>
 ```
