@@ -52,9 +52,12 @@
     }
 
     // add the button on window load
-    $(window).load(function() {
-        let html = '<div class=\"divider\"></div><div class="activity" id="btbutton" style="filter: brightness(70%) sepia(100%) hue-rotate(-50deg) saturate(1000%) contrast(0.8);"><p id="ptimer" style="z-index: 6; top: -8px; position: relative; font-weight: bold;"></p></div>'
-         $('.tb_activities, .toolbar_activities').find(".middle").append(html);
+    $(document).ajaxComplete(function() {
+        let button = document.getElementById("btbutton");
+        if (button == null) {
+           let html = '<div class=\"divider\"></div><div class="activity" id="btbutton" style="filter: brightness(70%) sepia(100%) hue-rotate(-50deg) saturate(1000%) contrast(0.8);"><p id="ptimer" style="z-index: 6; top: -8px; position: relative; font-weight: bold;"></p></div>'
+           $('.tb_activities, .toolbar_activities').find(".middle").append(html);
+        }
     });
 
     // set button event
