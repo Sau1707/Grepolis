@@ -34,10 +34,15 @@ Esempio per RitualUpgrade:
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/AutoRuralResources.js
 ```
 
-## <div align="center"> Ritual Upgrade: </div>
+## <div align="center"> RitualUpgrade: </div>
 #### <div align="center"> Crea un bottone nella schermata isola che permette di ampliare tutti i villaggi rurali dell'isola in 1 solo click, se i villaggi non sono costruiti vengono sbloccati </div>
 ```
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualUpgrade.js
 ```
 
+## <div align="center"> RitualSmartAttack: </div>
+#### <div align="center"> Crea un bottone nella schermata di attacco, che permette di automatizzare gli attacchi per rituale, inizia con 50 pf (divisi tra arceri, spadaccini, frombolieri ed opliti). In caso errore per popolazione mimina per attacco, aumenta progressivamente fino a riuscire a mandare l'attacco </div>
 
+```
+// @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/RitualSmartAttack.js
+```
