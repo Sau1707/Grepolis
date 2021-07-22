@@ -8,13 +8,13 @@
 
 (function() {
     'use strict';
-    const polis = [31431,32503,31409,31429,31413,31398,31406,31403,31411];
-    const dTime = [454,423,856,1062,1109,1138,1234,1309];
+    const polis = []; //BB code
+    const dTime = []; // distance in oplite with meteorogy
     const ammount = 18;
     const debug = true;
     const self_polis = 32623;
 
-    var counter = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var counter = Array.from({length: polis.length}, (_, i) => 0);
     var loop, active;
 
     function indexOfSmallest(a) {
