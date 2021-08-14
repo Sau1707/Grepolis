@@ -48,5 +48,11 @@
 ```
 
 
+## <div align="center"> TradeHelper: </div>
+#### <div align="center"> Evidenza le caselle di commercio nella panoramica, in rosso se sono finire le materie nella polis, in verde se è possibile effettuare un commercio, aracione se c'è un commercio in corso </div>
+```
+// @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/TradeHelper.js
+```
+
 ## <div align="center"> Per donazioni - For donations: </div>
 ### <div align="center"> [Paypal](https://paypal.me/sau1707) </div>
