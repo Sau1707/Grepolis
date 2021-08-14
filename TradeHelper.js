@@ -9,7 +9,7 @@
             let stone = parseInt(box[i].getElementsByClassName("resource_stone_icon res_icon")[0].innerText);
             let wood = parseInt(box[i].getElementsByClassName("resource_wood_icon res_icon")[0].innerText);
             let sum = wood + iron + wood;
-            if (sum < 5000) { // brightness(70%) sepia(100%) hue-rotate(-50deg) saturate(1000%) contrast(0.8)
+            if (sum < 1000) { // brightness(70%) sepia(100%) hue-rotate(-50deg) saturate(1000%) contrast(0.8)
                 box[i].style.filter = "hue-rotate(-45deg) saturate(2)";
                 //box[i].style.filter = "saturate(1)";
                 continue;
