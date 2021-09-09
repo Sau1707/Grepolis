@@ -40,7 +40,7 @@
             clearInterval(autoCaveLoop);
         } else {
             $("#autoCaveButton").css("filter","brightness(100%) sepia(100%) hue-rotate(90deg) saturate(1500%) contrast(0.8)");
-            autoCaveLoop = setInterval(autoCaveMain, 5000);
+            autoCaveLoop = setInterval(autoCaveMain, 1000);
         }
         autoCaveActive = !autoCaveActive
     });
