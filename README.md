@@ -54,5 +54,12 @@
 // @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/TradeHelper.js
 ```
 
+
+## <div align="center"> AutoSentinelle: </div>
+#### <div align="center"> Aiuta a mandare le sentinelle </div>
+```
+// @require     https://raw.githubusercontent.com/Sau1707/Grepolis/main/AutoSentinelle.js
+```
+
 ## <div align="center"> Per donazioni - For donations: </div>
 ### <div align="center"> [Paypal](https://paypal.me/sau1707) </div>
