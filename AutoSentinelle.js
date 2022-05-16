@@ -153,7 +153,7 @@
     }
 
     $(document).ajaxComplete(function() {
-        let wnds = uw.GPWindowMgr.getOpen(uw.Layout.wnd.TYPE_ISLAND);
+        let wnds = GPWindowMgr.getOpen(Layout.wnd.TYPE_ISLAND);
         for (let e in wnds) {
             if (wnds.hasOwnProperty(e)) {
                 let wndid = wnds[e].getID();
