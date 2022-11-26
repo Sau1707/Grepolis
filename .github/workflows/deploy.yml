@@ -17,6 +17,7 @@ jobs:
             - name: Move to website directory
               run: |
                   cd website
+                  pwd
 
             - name: Setup Node
               uses: actions/setup-node@v3
