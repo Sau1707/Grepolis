@@ -4,6 +4,7 @@ import { Tool, ToolGrid } from '../components/Tool';
 import Particle from '../components/Particle';
 import data from '../scripts.json';
 import SearchBar from '../components/SearchBar';
+import { useEffect } from 'react';
 
 export default function Home() {
 	return (

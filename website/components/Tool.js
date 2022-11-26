@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
@@ -16,12 +17,27 @@ const ToolGrid = styled.div`
 /* 
     color: green | orange | red;
 */
+const colorMap = {
+	green: 'rgb(75 243 64)',
+	orange: 'orange',
+	red: '#f72323',
+};
+
 function Tool({ color, title, version, id, url, description }) {
-	const colorMap = {
-		green: 'rgb(75 243 64)',
-		orange: 'orange',
-		red: '#f72323',
-	};
+	// var evt = new CustomEvent("gt_update_autocave", {detail: {version: "1.0.1"}});
+	// window.dispatchEvent(evt);
+
+	const [state, setState] = useState('install'); // install | installed | update
+	useEffect(() => {
+		window.addEventListener(`gt_update_${id}`, (e) => {
+			if (!e.detail) return;
+			const v = e.detail.version;
+			if (!v) return;
+			if (v == version) setState('installed');
+			else setState('update');
+			console.log(e.detail);
+		});
+	}, []);
 
 	return (
 		<Card style={{ width: 350, backgroundColor: colorMap[color] }}>
@@ -38,25 +54,51 @@ function Tool({ color, title, version, id, url, description }) {
 					{description}
 				</Description>
 				<ButtonBox>
-					<Button
-						style={{
-							backgroundColor: 'purple',
-							border: 0,
-						}}
-						href={url}
-						target='_blank'
-						id={`grepotweaks_${id}`}
-						name={'test'}
-					>
-						Click to install
-					</Button>
+					{state == 'install' && (
+						<Button
+							style={{
+								backgroundColor: 'purple',
+								border: 0,
+								fontWeight: 'bold',
+							}}
+							href={url}
+							target='_blank'
+							s
+						>
+							Install
+						</Button>
+					)}
+					{state == 'update' && (
+						<Button
+							style={{
+								backgroundColor: '#00ddff',
+								border: 0,
+								color: 'black',
+								fontWeight: 'bold',
+							}}
+							href={url}
+							target='_blank'
+							s
+						>
+							Update
+						</Button>
+					)}
+					{state == 'installed' && (
+						<Button
+							style={{
+								backgroundColor: '#00ff15',
+								border: 0,
+								color: 'black',
+								fontWeight: 'bold',
+							}}
+							href={url}
+							target='_blank'
+							s
+						>
+							Installed
+						</Button>
+					)}
 				</ButtonBox>
-				<p
-					id={`grepotweaks_${id}_version`}
-					style={{ visibility: 'hidden', width: 0, height: 0, margin: 0 }}
-				>
-					{version}
-				</p>
 			</Card.Body>
 		</Card>
 	);
