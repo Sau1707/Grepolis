@@ -1,0 +1,10 @@
+[
+	{
+		"id": "autocave",
+		"title": "AutoCave",
+		"color": "red",
+		"version": "1.0.0",
+		"description": "Adds a button that automatically inserts silver into the cavern, designed tofill caverns without leakage",
+		"url": "https://react-bootstrap.github.io/components/buttons/"
+	}
+]
