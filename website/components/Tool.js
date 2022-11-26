@@ -35,7 +35,6 @@ function Tool({ color, title, version, id, url, description }) {
 			if (!v) return;
 			if (v == version) setState('installed');
 			else setState('update');
-			console.log(e.detail);
 		});
 	}, []);
 
