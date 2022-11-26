@@ -15,9 +15,9 @@ jobs:
             - uses: actions/checkout@v3
 
             - name: Setup Node
-              cache-dependency-path: website
               uses: actions/setup-node@v3
               with:
+                  cache-dependency-path: website
                   node-version: 'lts/*'
                   cache: 'npm'
 
