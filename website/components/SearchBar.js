@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FcInfo } from 'react-icons/fc';
 
+/* TODO: make it functional */
 export default function SearchBar({ setFilter, filter }) {
 	return (
 		<InputBox>

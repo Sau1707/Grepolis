@@ -46,10 +46,17 @@ function Tool({ color, title, version, id, url, description }) {
 						href={url}
 						target='_blank'
 						id={`grepotweaks_${id}`}
+						name={'test'}
 					>
 						Click to install
 					</Button>
 				</ButtonBox>
+				<p
+					id={`grepotweaks_${id}_version`}
+					style={{ visibility: 'hidden', width: 0, height: 0, margin: 0 }}
+				>
+					{version}
+				</p>
 			</Card.Body>
 		</Card>
 	);
