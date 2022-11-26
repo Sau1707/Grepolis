@@ -10,14 +10,12 @@ on:
 jobs:
     deployment:
         runs-on: ubuntu-latest
+        defaults:
+            run:
+            working-directory: ./website
 
         steps:
             - uses: actions/checkout@v3
-
-            - name: Move to website directory
-              run: |
-                  cd website
-                  pwd
 
             - name: Setup Node
               uses: actions/setup-node@v3
