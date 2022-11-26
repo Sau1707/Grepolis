@@ -6,6 +6,9 @@ const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
 	basePath: env == 'development' ? null : '/Grepolis',
+	images: {
+		unoptimized: true,
+	},
 };
 
 module.exports = nextConfig;
