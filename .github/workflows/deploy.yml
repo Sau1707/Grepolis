@@ -10,26 +10,26 @@ on:
 jobs:
     deployment:
         runs-on: ubuntu-latest
-        defaults:
-            run:
-                working-directory: website
 
         steps:
             - uses: actions/checkout@v3
 
             - name: Setup Node
+              working-directory: website
               uses: actions/setup-node@v3
               with:
                   node-version: 'lts/*'
                   cache: 'npm'
 
             - name: Build
+              working-directory: website
               run: |
                   npm i --legacy-peer-deps
                   npm run build
                   npm run export
 
             - name: Deploy
+              working-directory: website
               uses: peaceiris/actions-gh-pages@v3
               with:
                   deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
