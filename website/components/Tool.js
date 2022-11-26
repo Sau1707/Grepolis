@@ -90,9 +90,7 @@ function Tool({ color, title, version, id, url, description }) {
 								color: 'black',
 								fontWeight: 'bold',
 							}}
-							href={url}
 							target='_blank'
-							s
 						>
 							Installed
 						</Button>

@@ -60,6 +60,19 @@ export default function Particle() {
 					},
 				},
 				detectRetina: true,
+				interactivity: {
+					events: {
+						onhover: {
+							enable: true,
+							mode: 'repulse',
+						},
+					},
+					modes: {
+						repulse: {
+							distance: 150,
+						},
+					},
+				},
 			}}
 		/>
 	);

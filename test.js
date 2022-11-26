@@ -1,11 +1,14 @@
 function checkForUpdate(id) {
-	const element = document.getElementById(`grepotweaks_${id}`);
-	if (!element) return;
+	setTimeout(() => {
+		const evt = new CustomEvent(`gt_update_${id}`, {
+			detail: { version: GM_info.script.version },
+		});
+		unsafeWindow.dispatchEvent(evt);
+	}, 100);
+}
 
-	const version = document.getElementById(`grepotweaks_${id}_version`);
-	if (!version) return;
-	element.innerHTML = `Update to ${'new version'}`;
-
-	element.style.backgroundColor = 'blue';
-	element.innerHTML = 'Installed';
+/* Check if activate in the grepotweak page */
+if (window.location.href == GM_info.script.matches[2]) {
+	checkForUpdate('autocave');
+	return;
 }
