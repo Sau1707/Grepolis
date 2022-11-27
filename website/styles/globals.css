@@ -4,7 +4,8 @@ body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
 		Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	background-color: black !important;
+	background: url(https://gpit.innogamescdn.com/images/game/common/water_base.png) 0px 0px repeat
+		rgb(0, 0, 0);
 }
 
 * {

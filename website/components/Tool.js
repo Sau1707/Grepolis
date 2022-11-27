@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import GrepoBox from './GrepoBox';
+import GrepoButton from './GrepoButton';
 import styled from 'styled-components';
 
 const ToolGrid = styled.div`
@@ -39,64 +40,44 @@ function Tool({ color, title, version, id, url, description }) {
 	}, []);
 
 	return (
-		<Card style={{ width: 350, backgroundColor: colorMap[color] }}>
-			<Card.Body>
-				<Card.Title>
-					<BoldTitle style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}>
-						{title}
-					</BoldTitle>
-					<Version style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}>
-						Version {version}
-					</Version>
-				</Card.Title>
-				<Description style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}>
-					{description}
-				</Description>
-				<ButtonBox>
-					{state == 'install' && (
-						<Button
-							style={{
-								backgroundColor: 'purple',
-								border: 0,
-								fontWeight: 'bold',
-							}}
-							href={url}
-							target='_blank'
-							s
+		// colorMap[color]
+		<Card style={{ width: 350, backgroundColor: 'rgb(255 225 161)' }}>
+			<GrepoBox>
+				{' '}
+				<Card.Body>
+					<Card.Title>
+						<BoldTitle
+							style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}
 						>
-							Install
-						</Button>
-					)}
-					{state == 'update' && (
-						<Button
-							style={{
-								backgroundColor: '#00ddff',
-								border: 0,
-								color: 'black',
-								fontWeight: 'bold',
-							}}
-							href={url}
-							target='_blank'
-							s
-						>
-							Update
-						</Button>
-					)}
-					{state == 'installed' && (
-						<Button
-							style={{
-								backgroundColor: '#00ff15',
-								border: 0,
-								color: 'black',
-								fontWeight: 'bold',
-							}}
-							target='_blank'
-						>
-							Installed
-						</Button>
-					)}
-				</ButtonBox>
-			</Card.Body>
+							{title}
+						</BoldTitle>
+						<Version style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}>
+							Version {version}
+						</Version>
+					</Card.Title>
+					<Description style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}>
+						{description}
+					</Description>
+
+					<ButtonBox>
+						{state == 'install' && (
+							<GrepoButton color='red' href={url}>
+								Install
+							</GrepoButton>
+						)}
+						{state == 'update' && (
+							<GrepoButton color='blue' href={url}>
+								Update
+							</GrepoButton>
+						)}
+						{state == 'installed' && (
+							<GrepoButton color='yellow' href={url}>
+								Installed
+							</GrepoButton>
+						)}
+					</ButtonBox>
+				</Card.Body>
+			</GrepoBox>
 		</Card>
 	);
 }
