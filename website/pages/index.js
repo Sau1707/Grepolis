@@ -22,8 +22,9 @@ export default function Home() {
 				<div
 					style={{
 						background:
-							'url(https://gpit-glps.innogamescdn.com/media/grepo/images/background-grepo-city-building-section.9cab004f.jpg) no-repeat -4px -100px',
+							'url(https://gpit-glps.innogamescdn.com/media/grepo/images/background-grepo-city-building-section.9cab004f.jpg) no-repeat 0px -100px',
 						width: 'auto',
+						backgroundSize: 'cover',
 						height: 500,
 						position: 'relative',
 						paddingTop: 100,

@@ -6,7 +6,9 @@ body {
 		Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	background: url(https://gpit.innogamescdn.com/images/game/common/water_base.png) 0px 0px repeat
 		rgb(0, 0, 0);
-	overflow: overlay;
+	overflow-y: overlay;
+	max-width: 100%;
+	overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -21,7 +23,7 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
 	background-color: rgb(92 84 67);
 	border-radius: 20px;
-	border: 1px solid black;
+	border: 10px solid transparent;
 }
 
 .MuiPaper-root {
