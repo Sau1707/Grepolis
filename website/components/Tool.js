@@ -1,9 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
-import Button from 'react-bootstrap/Button';
+import { useEffect, useState } from 'react';
+
 import Card from 'react-bootstrap/Card';
 import GrepoBox from './GrepoBox';
 import GrepoButton from './GrepoButton';
 import styled from 'styled-components';
+import Dialog from '@mui/material/Dialog';
+import GrepoModal from './GrepoModal';
 
 const ToolGrid = styled.div`
 	display: flex;
@@ -27,8 +29,9 @@ const colorMap = {
 function Tool({ color, title, version, id, url, description }) {
 	// var evt = new CustomEvent("gt_update_autocave", {detail: {version: "1.0.1"}});
 	// window.dispatchEvent(evt);
-
+	const [open, setOpen] = useState(false);
 	const [state, setState] = useState('install'); // install | installed | update
+
 	useEffect(() => {
 		window.addEventListener(`gt_update_${id}`, (e) => {
 			if (!e.detail) return;
@@ -39,46 +42,65 @@ function Tool({ color, title, version, id, url, description }) {
 		});
 	}, []);
 
+	const handleClickOpen = (e) => {
+		if (e.target.nodeName == 'A') return;
+		setOpen(true);
+	};
+
+	const handleClose = () => {
+		setOpen(false);
+	};
+
 	return (
-		// colorMap[color]
-		<Card style={{ width: 350, backgroundColor: 'rgb(255 225 161)' }}>
-			<GrepoBox>
-				{' '}
-				<Card.Body>
-					<Card.Title>
-						<BoldTitle
+		<>
+			<Card
+				style={{ width: 350, backgroundColor: 'rgb(255 225 161)', cursor: 'pointer' }}
+				onClick={handleClickOpen}
+			>
+				<GrepoBox>
+					<Card.Body>
+						<Card.Title>
+							<BoldTitle
+								style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}
+							>
+								{title}
+							</BoldTitle>
+							<Version
+								style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}
+							>
+								Version {version}
+							</Version>
+						</Card.Title>
+						<Description
 							style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}
 						>
-							{title}
-						</BoldTitle>
-						<Version style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}>
-							Version {version}
-						</Version>
-					</Card.Title>
-					<Description style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}>
-						{description}
-					</Description>
+							{description}
+						</Description>
 
-					<ButtonBox>
-						{state == 'install' && (
-							<GrepoButton color='red' href={url}>
-								Install
-							</GrepoButton>
-						)}
-						{state == 'update' && (
-							<GrepoButton color='blue' href={url}>
-								Update
-							</GrepoButton>
-						)}
-						{state == 'installed' && (
-							<GrepoButton color='yellow' href={url}>
-								Installed
-							</GrepoButton>
-						)}
-					</ButtonBox>
-				</Card.Body>
-			</GrepoBox>
-		</Card>
+						<ButtonBox>
+							{state == 'install' && (
+								<GrepoButton color='red' href={url}>
+									Install
+								</GrepoButton>
+							)}
+							{state == 'update' && (
+								<GrepoButton color='blue' href={url}>
+									Update
+								</GrepoButton>
+							)}
+							{state == 'installed' && (
+								<GrepoButton color='yellow' href={url}>
+									Installed
+								</GrepoButton>
+							)}
+						</ButtonBox>
+					</Card.Body>
+				</GrepoBox>
+			</Card>
+			<GrepoModal open={open} onClose={handleClose}>
+				<h1> Description + screen </h1>
+			</GrepoModal>
+		</>
 	);
 }
 

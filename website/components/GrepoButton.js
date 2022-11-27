@@ -13,7 +13,6 @@ export default function GrepoButton({ color, children, href }) {
 				style={{
 					backgroundPosition: ColorMap[color],
 				}}
-				onClick={() => {}}
 			>
 				<ButtonLink href={href} target='_blank'>
 					{children}
