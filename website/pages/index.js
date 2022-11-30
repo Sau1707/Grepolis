@@ -1,14 +1,45 @@
 import Head from 'next/head';
-import { Main, Title, TitleBox, SubTitle } from '../components/Title';
+/* Components */
+import { Main } from '../components/Title';
 import { Tool, ToolGrid } from '../components/Tool';
-import Particle from '../components/Particle';
-import data from '../scripts.json';
-
-import SearchBar from '../components/SearchBar';
 import GrepoScroll from '../components/GrepoScroll';
 import GrepoHr from '../components/GrepoHr';
+/* Util */
+import path from 'path';
+import fs from 'fs';
+/* Markdown converter */
+import { remark } from 'remark';
+import html from 'remark-html';
+import * as matter from 'gray-matter';
 
-export default function Home() {
+const postsDirectory = 'markdown';
+export function getStaticProps(id) {
+	var files = fs.readdirSync(postsDirectory);
+	let scripts = [];
+
+	files.map(async (file) => {
+		const fullPath = path.join(postsDirectory, file);
+		const fileContents = fs.readFileSync(fullPath, 'utf8');
+		/* Use gray-matter to parse the post metadata section */
+		const matterResult = matter(fileContents);
+
+		let element = { ...matterResult.data };
+		/* Use remark to convert markdown into HTML string */
+		const processedContent = await remark().use(html).process(matterResult.content);
+		const contentHtml = processedContent.toString();
+
+		element.markdown = contentHtml;
+		scripts.push(element);
+	});
+
+	return {
+		props: {
+			data: scripts,
+		},
+	};
+}
+
+export default function Home({ data }) {
 	return (
 		<>
 			<Head>
@@ -22,9 +53,10 @@ export default function Home() {
 				<div
 					style={{
 						background:
-							'url(https://gpit-glps.innogamescdn.com/media/grepo/images/background-grepo-city-building-section.9cab004f.jpg) no-repeat 0px -100px',
+							'url(https://gpit-glps.innogamescdn.com/media/grepo/images/background-grepo-city-building-section.9cab004f.jpg) no-repeat 0px 0px',
 						width: 'auto',
 						backgroundSize: 'cover',
+						backgroundPosition: 'center',
 						height: 500,
 						position: 'relative',
 						paddingTop: 100,

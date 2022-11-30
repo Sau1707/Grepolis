@@ -4,7 +4,6 @@ import Card from 'react-bootstrap/Card';
 import GrepoBox from './GrepoBox';
 import GrepoButton from './GrepoButton';
 import styled from 'styled-components';
-import Dialog from '@mui/material/Dialog';
 import GrepoModal from './GrepoModal';
 
 const ToolGrid = styled.div`
@@ -20,13 +19,7 @@ const ToolGrid = styled.div`
 /* 
     color: green | orange | red;
 */
-const colorMap = {
-	green: 'rgb(75 243 64)',
-	orange: 'orange',
-	red: '#f72323',
-};
-
-function Tool({ color, title, version, id, url, description }) {
+function Tool({ title, version, id, url, description, markdown }) {
 	// var evt = new CustomEvent("gt_update_autocave", {detail: {version: "1.0.1"}});
 	// window.dispatchEvent(evt);
 	const [open, setOpen] = useState(false);
@@ -60,22 +53,10 @@ function Tool({ color, title, version, id, url, description }) {
 				<GrepoBox>
 					<Card.Body>
 						<Card.Title>
-							<BoldTitle
-								style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}
-							>
-								{title}
-							</BoldTitle>
-							<Version
-								style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}
-							>
-								Version {version}
-							</Version>
+							<BoldTitle>{title}</BoldTitle>
+							<Version>Version {version}</Version>
 						</Card.Title>
-						<Description
-							style={{ textShadow: color != 'red' ? '0px 0px 1px white' : '' }}
-						>
-							{description}
-						</Description>
+						<Description>{description}</Description>
 
 						<ButtonBox>
 							{state == 'install' && (
@@ -98,7 +79,7 @@ function Tool({ color, title, version, id, url, description }) {
 				</GrepoBox>
 			</Card>
 			<GrepoModal open={open} onClose={handleClose}>
-				<h1> Description + screen </h1>
+				<div dangerouslySetInnerHTML={{ __html: markdown }} />
 			</GrepoModal>
 		</>
 	);
@@ -120,6 +101,7 @@ const Description = styled.p`
 	margin-bottom: 30px;
 	color: #000;
 	font-weight: bold;
+	min-height: 72px;
 `;
 
 const ButtonBox = styled.div`

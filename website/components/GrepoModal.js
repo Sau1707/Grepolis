@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import GrepoBox from './GrepoBox.js';
-
 import Dialog from '@mui/material/Dialog';
+
 export default function GrepoModal({ children, open, onClose }) {
 	return (
 		<Dialog fullWidth maxWidth='lg' open={open} onClose={onClose}>
-			<CloseButton />
+			<CloseButton onClick={onClose} />
 			<GrepoBox />
 			<WindowLeft />
 			<WindowRight />
@@ -51,8 +51,30 @@ export default function GrepoModal({ children, open, onClose }) {
 const StyledBody = styled.div`
 	background-color: #ffe19b;
 	min-height: 400px;
-	padding: 20px;
-	padding-top: 35px;
+	padding: 40px;
+	padding-top: 55px;
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	width: auto;
+
+	img {
+		object-fit: contain;
+		width: 100%;
+		max-width: 800px;
+		margin: 0 auto;
+		display: block;
+	}
+
+	p {
+		font-weight: bold;
+		padding: 0 20px;
+	}
+
+	h1 {
+		text-align: center;
+		margin-bottom: 30px;
+	}
 `;
 
 const WindowLeft = styled.div`
@@ -66,6 +88,7 @@ const WindowLeft = styled.div`
 	overflow: hidden;
 	display: block;
 	left: 0;
+	z-index: 2;
 `;
 
 const WindowRight = styled.div`
@@ -79,6 +102,7 @@ const WindowRight = styled.div`
 	overflow: hidden;
 	display: block;
 	right: 0;
+	z-index: 2;
 `;
 
 const WindowTop = styled.div`
@@ -89,6 +113,7 @@ const WindowTop = styled.div`
 	background: url(https://gpit.innogamescdn.com/images/game/layout/gpwindow_horizontal.png) 0 -17px
 		repeat-x;
 	top: 0;
+	z-index: 2;
 `;
 
 const WindowBottom = styled.div`
@@ -99,6 +124,7 @@ const WindowBottom = styled.div`
 	background: url(https://gpit.innogamescdn.com/images/game/layout/gpwindow_horizontal.png) 0 0
 		repeat-x;
 	bottom: 0;
+	z-index: 2;
 `;
 
 const WindowCorner = styled.div`
@@ -106,6 +132,7 @@ const WindowCorner = styled.div`
 	background-repeat: no-repeat;
 	width: 16px;
 	position: absolute;
+	z-index: 2;
 `;
 
 const CloseButton = styled.button`
@@ -121,4 +148,5 @@ const CloseButton = styled.button`
 	position: absolute;
 	right: 7px;
 	top: 7px;
+	z-index: 3;
 `;
