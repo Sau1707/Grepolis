@@ -24,10 +24,8 @@ export function getStaticProps(id) {
 		const matterResult = matter(fileContents);
 
 		let element = { ...matterResult.data };
-		console.log(matterResult);
 		/* Use remark to convert markdown into HTML string */
 		const processedContent = await remark().use(html).process(matterResult.content);
-		console.log(processedContent);
 		const contentHtml = processedContent.toString();
 
 		element.markdown = contentHtml;

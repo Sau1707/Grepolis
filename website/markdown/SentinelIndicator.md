@@ -14,4 +14,4 @@ Add a green shield to all the polis that has a troop inside, the green shield it
 
 To make it efficient the script save the polis that has the shield and update only the one that change the state. Furthermore, all the calculation are done only when the user moves the screen.
 
-![Alt text](/images/sentinelindicator_island.png 'sentinel_island')
+![Alt text](./images/sentinelindicator_island.png 'sentinel_island')
