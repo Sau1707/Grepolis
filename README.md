@@ -28,7 +28,7 @@ npm run dev
 
 ### Add script to webpage
 
-Under the folder `website/markdown` add a file for each script
+Under the folder `markdown` add a file for each script
 
 ```
 ---
@@ -46,7 +46,9 @@ url:
 
 It will automatically be added to the script by nextjs
 
-## Tampermonkey Script headers
+<br />
+
+### Tampermonkey Script headers
 
 ```
 // ==UserScript==
@@ -64,26 +66,4 @@ It will automatically be added to the script by nextjs
 
 Where namespace add the same as id for reference
 
-### Autoupdate
-
-In the website when a script it's not installed, the button will show up red, in order to show the user that he already has installed the script, add the following function
-
-```js
-function checkForUpdate(id) {
-	if (!GM_info) return;
-	if (window.location.href != GM_info.script.matches[2]) return;
-	setTimeout(() => {
-		const uw = unsafeWindow ? unsafeWindow : window;
-		const evt = new CustomEvent(`gt_update_${id}`, {
-			detail: { version: GM_info.script.version },
-		});
-		uw.dispatchEvent(evt);
-	}, 100);
-}
-```
-
-call the function at the beginning of the script with the id of it
-
-```js
-
-```
+The `@require` it's used for the website buttons, they change color if it's deteced that the script it's installed

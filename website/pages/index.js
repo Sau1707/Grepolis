@@ -12,7 +12,7 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import * as matter from 'gray-matter';
 
-const postsDirectory = 'markdown';
+const postsDirectory = '../markdown';
 export function getStaticProps(id) {
 	var files = fs.readdirSync(postsDirectory);
 	let scripts = [];
