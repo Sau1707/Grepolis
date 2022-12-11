@@ -1,7 +1,7 @@
 ---
-id: sentinelbutton
-title: Sentinel Button
-version: 1.0.1
+id: autodionysia
+title: Auto Dionysia
+version: 1.0.0
 description: Add a button in the Context Menu for easly send a sentinel
 url: https://gist.github.com/Sau1707/db630c430aea5f8824464769853f2e8a/raw/25c2cef05431dd1fb751425f6bdbef1efd188785/sentinelbutton.user.js
 ---
