@@ -57,18 +57,24 @@ const StyledBody = styled.div`
 	overflow-x: hidden;
 	overflow-y: scroll;
 	width: auto;
+	font-weight: bold;
 
 	img {
 		object-fit: contain;
 		width: 100%;
 		max-width: 800px;
-		margin: 0 auto;
+		margin: 20px auto;
 		display: block;
+		max-height: 400px;
 	}
 
 	p {
-		font-weight: bold;
-		padding: 0 20px;
+		padding: 0 10px;
+		margin: 0;
+	}
+
+	ol {
+		padding: 0 50px;
 	}
 
 	h1 {
