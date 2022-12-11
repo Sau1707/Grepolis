@@ -46,6 +46,24 @@ url:
 
 It will automatically be added to the script by nextjs
 
+## Tampermonkey Script headers
+
+```
+// ==UserScript==
+// @name
+// @namespace
+// @author       Sau1707
+// @description
+// @version      1.0.1
+// @match        http://*.grepolis.com/game/*
+// @match        https://*.grepolis.com/game/*
+// @match        https://sau1707.github.io/Grepolis/
+// @require      https://github.com/Sau1707/Grepolis/raw/main/update1.js
+// ==/UserScript==
+```
+
+Where namespace add the same as id for reference
+
 ### Autoupdate
 
 In the website when a script it's not installed, the button will show up red, in order to show the user that he already has installed the script, add the following function
