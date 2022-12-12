@@ -1,7 +1,6 @@
 ---
 publish: false
 title: SentinelIndicator
-version: 1.0.0
 description: Adds a green shield see to polis with sentinels, 100% client side
 ---
 

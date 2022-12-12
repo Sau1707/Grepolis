@@ -3,7 +3,7 @@
 // @namespace    autocave
 // @author       Sau1707
 // @description  To automatically put silver in the cave
-// @version      1.0.1
+// @version      1.2.0
 // @match        http://*.grepolis.com/game/*
 // @match        https://*.grepolis.com/game/*
 // @match        https://sau1707.github.io/Grepolis/

@@ -1,6 +1,5 @@
 ---
 title: AutoCave
-version: 1.1.0
 description: Adds a button that automatically inserts silver into the cavern, designed to fill caverns without leakage
 ---
 

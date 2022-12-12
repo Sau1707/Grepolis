@@ -1,7 +1,5 @@
 ---
-publish: false
-title: Sentinel Button
-version: 1.0.1
+title: SentinelButton
 description: Add a button in the Context Menu for easly send a sentinel
 ---
 

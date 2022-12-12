@@ -13,6 +13,23 @@ import html from 'remark-html';
 import * as matter from 'gray-matter';
 
 const postsDirectory = '../markdown';
+const scriptsDirectory = '../scripts';
+
+function getScriptVersion(id) {
+	let fullPath = path.join(scriptsDirectory, `${id}.user.js`);
+	try {
+		const fileContents = fs.readFileSync(fullPath, 'utf8');
+		const matterResult = matter(fileContents);
+		const content = matterResult.content;
+		if (!content) return '0.0.0';
+		let versionIndex = content.search('version');
+		let version = content.slice(versionIndex + 13, versionIndex + 18);
+		return version;
+	} catch (err) {
+		return '0.0.0';
+	}
+}
+
 export function getStaticProps(id) {
 	var files = fs.readdirSync(postsDirectory);
 	let scripts = [];
@@ -28,7 +45,12 @@ export function getStaticProps(id) {
 		const matterResult = matter(fileContents);
 
 		if (matterResult.data.publish === false) return;
-		let element = { ...matterResult.data, id: id, url: getScriptPath(id) };
+		let element = {
+			...matterResult.data,
+			id: id,
+			url: getScriptPath(id),
+			version: getScriptVersion(id),
+		};
 		/* Use remark to convert markdown into HTML string */
 		const processedContent = await remark().use(html).process(matterResult.content);
 		const contentHtml = processedContent.toString();

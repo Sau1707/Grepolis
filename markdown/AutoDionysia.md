@@ -1,7 +1,6 @@
 ---
 publish: false
 title: Auto Dionysia
-version: 1.0.0
 description: Add a button in the Context Menu for easly send a sentinel
 ---
 
