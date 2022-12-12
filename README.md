@@ -1,6 +1,6 @@
 # <div align="center"> Grepolis Tweaks </div>
 
-## <div align="center"> [Website](https://sau1707.github.io/Grepolis/) - [Donations](https://paypal.me/sau1707) </div>
+### <div align="center"> [Website](https://sau1707.github.io/Grepolis/) - [Donations](https://paypal.me/sau1707) </div>
 
 <br />
 
@@ -52,7 +52,7 @@ It will automatically be added to the script by nextjs
 
 ```
 // ==UserScript==
-// @name
+// @name         GrepoTweaks-
 // @namespace
 // @author       Sau1707
 // @description
@@ -60,10 +60,28 @@ It will automatically be added to the script by nextjs
 // @match        http://*.grepolis.com/game/*
 // @match        https://*.grepolis.com/game/*
 // @match        https://sau1707.github.io/Grepolis/
-// @require      https://github.com/Sau1707/Grepolis/raw/main/update1.js
+// @require      https://github.com/Sau1707/Grepolis/raw/main/update.js
 // ==/UserScript==
 ```
 
 Where namespace add the same as id for reference
 
 The `@require` it's used for the website buttons, they change color if it's deteced that the script it's installed
+
+<br />
+
+### TODO
+
+-   Remove url from markdown file but automatically call filename with id of script
+-   Edit scripts with new autoupdate
+-   Move script from gist to scripts folder
+-   Finisch and publish old scripts
+-   Finisch menù script + easly adoption for all the others
+-   Find a way to save user preferences that is not localstorage
+
+```
+const uw = unsafeWindow ? unsafeWindow : window;
+console.log("[GrepoTweaks-AutoCave] Loaded");
+```
+
+// uw.$.Observer(uw.GameEvents.window.open).subscribe((e, data) => console.log(data))

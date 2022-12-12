@@ -1,9 +1,8 @@
 ---
-id: sentinelindicator
+publish: false
 title: SentinelIndicator
 version: 1.0.0
 description: Adds a green shield see to polis with sentinels, 100% client side
-url: https://gist.github.com/Sau1707/975b2c0cf9b07d2674c2455419431469/raw/a379815a6844c5c2ac42ff41b4862a02670f5eb0/sentinelIndicator.user.js
 ---
 
 # Sentinel Indicator

@@ -17,13 +17,18 @@ export function getStaticProps(id) {
 	var files = fs.readdirSync(postsDirectory);
 	let scripts = [];
 
+	const getScriptPath = (id) =>
+		`https://raw.githubusercontent.com/Sau1707/Grepolis/main/scripts/${id}.user.js`;
+
 	files.map(async (file) => {
+		const id = path.parse(file).name.toLowerCase();
 		const fullPath = path.join(postsDirectory, file);
 		const fileContents = fs.readFileSync(fullPath, 'utf8');
 		/* Use gray-matter to parse the post metadata section */
 		const matterResult = matter(fileContents);
 
-		let element = { ...matterResult.data };
+		if (matterResult.data.publish === false) return;
+		let element = { ...matterResult.data, id: id, url: getScriptPath(id) };
 		/* Use remark to convert markdown into HTML string */
 		const processedContent = await remark().use(html).process(matterResult.content);
 		const contentHtml = processedContent.toString();

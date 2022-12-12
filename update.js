@@ -1,3 +1,4 @@
+/* This script that if the user it's on the main website page, it'used to hightlight the buttons */
 (function () {
 	const uw = unsafeWindow ? unsafeWindow : window;
 	if (!GM_info) return;
