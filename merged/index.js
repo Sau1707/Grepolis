@@ -44,7 +44,6 @@ async function updateVersion(current) {
 async function getCurrentVersion() {
 	const js = await fs.readFile(OUTPUT, 'utf-8');
 	let versionIndex = js.search('version');
-	console.log(versionIndex);
 	let version = js.slice(versionIndex + 13, versionIndex + 18);
 	return version;
 }
