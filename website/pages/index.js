@@ -11,6 +11,7 @@ import fs from 'fs';
 import { remark } from 'remark';
 import html from 'remark-html';
 import * as matter from 'gray-matter';
+import GrepoButton from '../components/GrepoButton';
 
 const postsDirectory = '../markdown';
 const scriptsDirectory = '../scripts';
@@ -102,6 +103,15 @@ export default function Home({ data }) {
 							</a>
 						</h4>
 						<h6 style={{ color: 'white' }}> Created by Sau1707 </h6>
+						<br />
+						<br />
+						<br />
+						<h4 style={{ color: 'white', textShadow: '1px 1px 2px black' }}>
+							All the scripts in a single file
+						</h4>
+						<div style={{ margin: 'auto', width: 'fit-content' }}>
+							<GrepoButton> Install </GrepoButton>
+						</div>
 					</div>
 				</div>
 				<GrepoHr />

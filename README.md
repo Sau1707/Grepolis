@@ -85,3 +85,15 @@ console.log("[GrepoTweaks-AutoCave] Loaded");
 ```
 
 // uw.$.Observer(uw.GameEvents.window.open).subscribe((e, data) => console.log(data))
+
+## Merged
+
+```
+npm install
+```
+
+```
+npm start
+```
+
+TODO: version. ecc

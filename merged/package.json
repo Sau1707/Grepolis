@@ -1,0 +1,16 @@
+{
+	"name": "merged",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"uglify-js": "^3.17.4",
+		"fs-extra": "^11.1.0"
+	}
+}
