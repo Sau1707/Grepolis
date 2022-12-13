@@ -89,7 +89,7 @@ export function getStaticProps(id) {
 
 const MERGED = 'https://raw.githubusercontent.com/Sau1707/Grepolis/main/merged/merged.user.js';
 
-export default function Home({ data }) {
+export default function Home({ data, mergedVersion }) {
 	const [state, setState] = useState('install'); // install | installed | update
 	useEffect(() => {
 		window.addEventListener(`gt_update_grepotweaksmerged`, (e) => {
