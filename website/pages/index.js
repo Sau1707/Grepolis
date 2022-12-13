@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 /* Components */
 import { Main } from '../components/Title';
 import { Tool, ToolGrid } from '../components/Tool';
@@ -15,7 +16,23 @@ import GrepoButton from '../components/GrepoButton';
 
 const postsDirectory = '../markdown';
 const scriptsDirectory = '../scripts';
+const mergedFile = '../merged/merged.user.js';
 
+function getMergedVersion() {
+	try {
+		const fileContents = fs.readFileSync(mergedFile, 'utf8');
+		const matterResult = matter(fileContents);
+		const content = matterResult.content;
+		if (!content) return '0.0.0';
+		let versionIndex = content.search('version');
+		let version = content.slice(versionIndex + 13, versionIndex + 18);
+		return version;
+	} catch (err) {
+		return '0.0.0';
+	}
+}
+
+/* return version a script */
 function getScriptVersion(id) {
 	let fullPath = path.join(scriptsDirectory, `${id}.user.js`);
 	try {
@@ -60,14 +77,30 @@ export function getStaticProps(id) {
 		scripts.push(element);
 	});
 
+	const mergedVersion = getMergedVersion();
+
 	return {
 		props: {
 			data: scripts,
+			mergedVersion: mergedVersion,
 		},
 	};
 }
 
+const MERGED = 'https://raw.githubusercontent.com/Sau1707/Grepolis/main/merged/merged.user.js';
+
 export default function Home({ data }) {
+	const [state, setState] = useState('install'); // install | installed | update
+	useEffect(() => {
+		window.addEventListener(`gt_update_grepotweaksmerged`, (e) => {
+			if (!e.detail) return;
+			const v = e.detail.version;
+			if (!v) return;
+			if (v == mergedVersion) setState('installed');
+			else setState('update');
+		});
+	}, []);
+
 	return (
 		<>
 			<Head>
@@ -110,7 +143,21 @@ export default function Home({ data }) {
 							All the scripts in a single file
 						</h4>
 						<div style={{ margin: 'auto', width: 'fit-content' }}>
-							<GrepoButton> Install </GrepoButton>
+							{state == 'install' && (
+								<GrepoButton color='red' href={MERGED}>
+									Install
+								</GrepoButton>
+							)}
+							{state == 'update' && (
+								<GrepoButton color='blue' href={MERGED}>
+									Update
+								</GrepoButton>
+							)}
+							{state == 'installed' && (
+								<GrepoButton color='yellow' href={MERGED}>
+									Installed
+								</GrepoButton>
+							)}
 						</div>
 					</div>
 				</div>

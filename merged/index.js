@@ -2,7 +2,7 @@ import fs from 'fs-extra';
 import uglify from 'uglify-js';
 
 const INPUTFOLDER = '../scripts';
-const OUTPUT = 'merged.js';
+const OUTPUT = 'merged.user.js';
 
 const TAMPERMONEKY_HEADER = (version) => `// ==UserScript==
 // @name         GrepoTweaks-Merged
