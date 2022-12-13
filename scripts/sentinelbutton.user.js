@@ -3,7 +3,7 @@
 // @namespace    sentinelbutton
 // @author       Sau1707
 // @description  Add a button in the Context Menu for easly send a sentinel
-// @version      1.1.0
+// @version      1.1.1
 // @match        http://*.grepolis.com/game/*
 // @match        https://*.grepolis.com/game/*
 // @match        https://sau1707.github.io/Grepolis/
@@ -104,4 +104,6 @@
 			menu.remove();
 		});
 	});
+
+	console.log('[GrepoTweaks-SentinelButton] Loaded');
 })();

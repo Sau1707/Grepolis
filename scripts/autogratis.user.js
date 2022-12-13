@@ -3,7 +3,7 @@
 // @namespace    autogratis
 // @author       Sau1707
 // @description  Click the gratis button so you don't have to do it
-// @version      1.0.1
+// @version      1.0.2
 // @match        http://*.grepolis.com/game/*
 // @match        https://*.grepolis.com/game/*
 // @match        https://sau1707.github.io/Grepolis/
@@ -19,4 +19,6 @@
 	}
 
 	let loop = setInterval(callFree, 4000);
+
+	console.log('[GrepoTweaks-AutoGratis] Loaded');
 })();
