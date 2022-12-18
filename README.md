@@ -1,6 +1,9 @@
 # <div align="center"> Grepolis Tweaks </div>
 
+### <p align="center"> If you like this project, please consider starring it to show your support and help others discover it too </p>
 ### <div align="center"> [Website](https://sau1707.github.io/Grepolis/) - [Donations](https://paypal.me/sau1707) </div>
+
+
 
 <br />
 
