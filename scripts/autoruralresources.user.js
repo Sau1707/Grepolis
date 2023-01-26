@@ -3,7 +3,7 @@
 // @namespace    sentinelindicator
 // @author       Sau1707
 // @description  Claim Automatically the resouces from the rural villages (need capitan to work)
-// @version      2.1.0
+// @version      2.1.1
 // @match        http://*.grepolis.com/game/*
 // @match        https://*.grepolis.com/game/*
 // @match        https://sau1707.github.io/Grepolis/
@@ -54,11 +54,24 @@
 	/* return the ammount of milliseconds before the next collection  */
 	function getNextCollection() {
 		let models = uw.MM.getCollections().FarmTownPlayerRelation[0].models;
-		let min = Number.MAX_SAFE_INTEGER;
+		let lootable_at_values = {};
 		for (let model of models) {
-			if (model.attributes.lootable_at < min) min = model.attributes.lootable_at;
+			let lootable_time = model.attributes.lootable_at;
+			if (lootable_at_values[lootable_time]) {
+				lootable_at_values[lootable_time] += 1;
+			} else {
+				lootable_at_values[lootable_time] = 1;
+			}
 		}
-		let seconds = min - Math.floor(Date.now() / 1000);
+		let max_value = 0;
+		let max_lootable_time = 0;
+		for (let lootable_time in lootable_at_values) {
+			if (lootable_at_values[lootable_time] > max_value) {
+				max_value = lootable_at_values[lootable_time];
+				max_lootable_time = lootable_time;
+			}
+		}
+		let seconds = max_lootable_time - Math.floor(Date.now() / 1000);
 		if (seconds < 0) return 0;
 		return seconds * 1000;
 	}
@@ -67,7 +80,8 @@
 	function main() {
 		/* Fix time if out ot timing */
 		let next = getNextCollection();
-		if (next + 2 * delta_time < timer) {
+		if (timer + 2 * delta_time < next) {
+			console.log('here');
 			timer = next + Math.floor(Math.random() * delta_time);
 		}
 
@@ -90,6 +104,17 @@
 	}
 
 	function handleButtonClick() {
+		/* if captain is not avalable, set button yellow and return */
+		if (!uw.GameDataPremium.isAdvisorActivated('captain')) {
+			uw.$('#btbutton').css(
+				'filter',
+				'brightness(294%) sepia(100%) hue-rotate(15deg) saturate(1000%) contrast(0.8)',
+			);
+			var bt = document.getElementById('ptimer');
+			bt.innerHTML = '!';
+			clearInterval(loop);
+			return;
+		}
 		if (!loop) {
 			timer = getNextCollection() + Math.random() * delta_time;
 			lastTime = Date.now();
