@@ -3,7 +3,7 @@
 // @namespace    sentinelindicator
 // @author       Sau1707
 // @description  Claim Automatically the resouces from the rural villages (need capitan to work)
-// @version      2.0.1
+// @version      2.1.0
 // @match        http://*.grepolis.com/game/*
 // @match        https://*.grepolis.com/game/*
 // @match        https://sau1707.github.io/Grepolis/
@@ -51,18 +51,27 @@
 		return polisList;
 	}
 
-	/* Get time of next collection */
+	/* return the ammount of milliseconds before the next collection  */
 	function getNextCollection() {
 		let models = uw.MM.getCollections().FarmTownPlayerRelation[0].models;
-		let max = 0;
+		let min = Number.MAX_SAFE_INTEGER;
 		for (let model of models) {
-			if (model.attributes.lootable_at > max) max = model.attributes.lootable_at;
+			if (model.attributes.lootable_at < min) min = model.attributes.lootable_at;
 		}
-		return max;
+		let seconds = min - Math.floor(Date.now() / 1000);
+		if (seconds < 0) return 0;
+		return seconds * 1000;
 	}
 
 	/* Handle the timer and get resourses at the right time */
 	function main() {
+		/* Fix time if out ot timing */
+		let next = getNextCollection();
+		if (next + 2 * delta_time < timer) {
+			timer = next + Math.floor(Math.random() * delta_time);
+		}
+
+		/* Claim resouces of timer has passed */
 		if (timer < 1) {
 			let Polislist = generateList();
 			claim(Polislist);
@@ -70,6 +79,7 @@
 			timer = time + rand;
 			setTimeout(() => uw.WMap.removeFarmTownLootCooldownIconAndRefreshLootTimers(), 2000);
 		}
+		/* Update timing */
 		const currentTime = Date.now();
 		timer -= currentTime - lastTime;
 		lastTime = currentTime;
@@ -81,9 +91,7 @@
 
 	function handleButtonClick() {
 		if (!loop) {
-			timer =
-				(getNextCollection() - Math.floor(Date.now() / 1000)) * 1000 +
-				Math.random() * 10000;
+			timer = getNextCollection() + Math.random() * delta_time;
 			lastTime = Date.now();
 			loop = setInterval(main, 1000);
 			uw.$('#btbutton').css(
@@ -103,10 +111,11 @@
 	/* add the button on window load */
 	setTimeout(function () {
 		let btbutton = document.getElementById('btbutton');
-		if (btbutton == null)
+		if (btbutton == null) {
 			uw.$('.tb_activities, .toolbar_activities').find('.middle').append(buttonHtml);
+		}
 		if (startOnLogin) handleButtonClick();
-	}, 5000);
+	}, 4000);
 
 	/* Set button event */
 	uw.$(document).on('click', '#btbutton', handleButtonClick);
