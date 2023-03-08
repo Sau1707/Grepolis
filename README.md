@@ -1,9 +1,10 @@
 # <div align="center"> Grepolis Tweaks </div>
 
+> :warning: I stopped working In this reposity, the project moved to [ModernBot](https://github.com/Sau1707/ModernBot) with the impementation of new functionality as well a GUI
+
 ### <p align="center"> If you like this project, please consider starring it to show your support and help others discover it too </p>
+
 ### <div align="center"> [Website](https://sau1707.github.io/Grepolis/) - [Donations](https://paypal.me/sau1707) </div>
-
-
 
 <br />
 

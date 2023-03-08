@@ -1,7 +1,5 @@
 # New Grepolis bot
 
-> :warning: I stopped working In this reposity, the project moved to [ModernBot](https://github.com/Sau1707/ModernBot) with the impementation of new functionality as well a GUI
-
 Work in progress
 
 <br />
