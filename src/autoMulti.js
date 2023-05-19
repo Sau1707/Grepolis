@@ -12,11 +12,8 @@
     'use strict';
 
     var uw;
-    if (typeof unsafeWindow == 'undefined') {
-        uw = window;
-    } else {
-        uw = unsafeWindow;
-    }
+    if (typeof unsafeWindow == 'undefined') uw = window;
+    else uw = unsafeWindow;
 
     const get_finisched_tasks = () => {
         const { Progressable } = uw.MM.getCollections()
@@ -65,6 +62,27 @@
     }
 
     function main() {
+        /* Add town in the build list if not present yet */
+        for (let town of Object.values(uw.ITowns.towns)) {
+            if (typeof(uw.modernBot) === "undefined") break;
+            if (town.id in uw.modernBot.autoBuild.towns_buildings) continue;
+            uw.modernBot.autoBuild.towns_buildings[town.id] = {
+                main:25,
+                storage:35,
+                farm:45,
+                academy:30,
+                temple:30,
+                barracks:5,
+                docks:30,
+                market:30,
+                hide:10,
+                lumber:40,
+                stoner:40,
+                ironer:40,
+                wall:0
+            }
+        }
+        
         const town = uw.ITowns.getCurrentTown();
         const {wood, iron, stone, storage} = town.resources()
         const margin = 50
